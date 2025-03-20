@@ -1,8 +1,6 @@
 package edu.pucgoias.aulasjavafx.controller;
 
 import edu.pucgoias.aulasjavafx.util.CustomAlert;
-import edu.pucgoias.aulasjavafx.util.CustomEventHandler;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -13,12 +11,10 @@ import java.util.Optional;
 
 public class MainController {
     @FXML private Label mensagem;
-    @FXML private Button btnOne;
     @FXML private Button btnTwo;
-    @FXML private Button btnThree;
 
     public void initialize() {
-        btnTwo.setOnAction(event -> {
+        btnTwo.setOnAction(_ -> {
                 Alert alert = new Alert(Alert.AlertType.NONE);
                 Optional<ButtonType> result;
 
@@ -41,9 +37,7 @@ public class MainController {
                 "Confirmação",
                 null,
                 "Deseja alterar a mensagem?",
-                () -> {
-                    mensagem.setText("Evento tratado por um controlador externo!");
-                }
+                () -> mensagem.setText("Evento tratado por um controlador externo!")
         );
     }
 
